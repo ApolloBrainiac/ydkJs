@@ -292,7 +292,7 @@ foo(); // 5 7 9
 // ===========
 // Conditionals
 // ===========
-
+/*
 // if..else.if statements:
 
 if (a == 2) {
@@ -352,3 +352,42 @@ if (a > 41){
 } else {
 	b = "world";
 }
+
+*/
+
+// ===========
+// Strict Mode
+// ===========
+
+// USE IT //
+//use in a single function:
+
+function foo(){
+	"use strict";
+
+	// this code is in strict mode
+
+	function bar(){
+		// this code is in strict mode
+	}
+}
+
+// code outside is not in strict mode
+
+// use program wide:
+"use strict";
+
+function foo() {
+	// this code is in strict mode
+
+	function bar() {
+		// this code is in strict
+	}
+}
+
+// so is outside code
+
+// It keeps JS from the inplicit auto-global var declaration
+// Which is a damn good thing
+
+
