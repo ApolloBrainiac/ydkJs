@@ -186,3 +186,169 @@ a == b;	// false
 // Variables
 // ===========
 
+/*
+Identifiers must begin with:
+a-z, A-Z, $, or _
+can contain any of the above and the
+numerals 0-9
+
+can't use 'reserved words'
+(i.e. for, in if, null, true, false)
+*/
+
+
+// ===========
+// Function Scopes
+
+//Hoisting
+
+/*
+var a = 2;
+
+foo();					// works because 'foo()'
+									//delcaration is hoisted
+
+function foo(){
+	a = 3;
+	console.log(a);		//3
+
+	var a;						//using var means it is hoisted
+										// to top of foo()
+}
+
+console.log(a);	// 2
+
+/* relying on hoisting for variables is bad form
+relying on it for functions is standard
+
+*/
+
+//Nested Scopes
+// when you delcare a variable it is accessible
+// in all inner/lower Scopes
+
+//observe:
+/*function foo() {
+	var a = 1;
+
+	function bar() {
+		var b = 2;
+
+		function baz(){
+			var c = 3;
+
+			console.log( a, b, c); // 1 2 3
+		}
+
+		baz();
+		console.log(a,b); // 1 2
+	}
+
+	bar();
+	console.log(a);	// 1
+}
+
+foo();
+*/
+
+/* not declaring variables can lead to accidental
+global scope
+
+//observe:
+
+function foo(){
+	a = 1;	// 'a' not formally declared
+}
+
+foo();
+a;	// now has a value of 1 globally
+
+*/
+
+// 'let' keyword, scoping rules will behave
+// roughly the same
+
+//observe:
+
+/*
+function foo(){
+	var a = 1;
+
+	if (a >= 1) {
+		let b = 2; //using let means it'll only belong to the if statement
+
+		while (b < 5) {
+			let c = b* 2;
+			b++;
+
+			console.log( a + c );
+		}
+	}
+}
+
+foo(); // 5 7 9 
+*/
+
+// ===========
+// Conditionals
+// ===========
+
+// if..else.if statements:
+
+if (a == 2) {
+	// do something
+}
+else if (a == 10) {
+	//do another thing
+}
+else if ( a == 42) {
+	// whole new thing
+}
+else {
+	// fallback in case no things happen
+}
+
+// switch statemetns:
+
+switch (a) {
+	case 2:
+		// do something
+		break;
+	case 10:
+		// do another thing
+		break;
+	case 42:
+		// whole new thing
+		break;
+	default:
+		// fallback
+}
+
+// example of 'fall through'
+
+switch(a){
+	case 2:
+	case 10:
+		//some cool stuff
+		break;
+	case 42:
+		//other stuff
+		break;
+	default:
+		//fallback
+}
+
+// conditional/ternary operator:
+
+var a = 42;
+
+var b = (a > 41) ? "hello" : "world";
+
+/*
+similar to:
+
+if (a > 41){
+	b = "hello";
+} else {
+	b = "world";
+}
