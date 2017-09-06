@@ -161,5 +161,28 @@ a == b;	//false
 */
 
 // ===========
-// Inequality
+// Inequality (relational comparison)
+
+/*
+var a = 41;
+var b = "42";
+var c = "43";
+
+a < b;	// true
+b < c;	// true
+
+
+
+var a = 42;
+var b = "foo";
+
+a < b;	// false b is being coerced into NaN
+a > b;	// false
+a == b;	// false
+
+*/
+
+// ===========
+// Variables
+// ===========
 
